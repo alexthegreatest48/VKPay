@@ -12,6 +12,6 @@ internal class MainKtTest {
         var sumOverallCard = 0 // Общая сумма переводов для всех карт
 
         val result = commission(typeCard, sumOverallCard, sum)
-        assertEquals(30, result)
+        assertEquals(29, result)
     }
 }
