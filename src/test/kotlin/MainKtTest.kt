@@ -6,12 +6,39 @@ internal class MainKtTest {
 
     @Test
     fun commission() {
-        val typeCard = 2 // 1 - VKpay 2 - Visa Мир 3 - Master Maestro
-        val sum = 30
+        var typeCard = 2 // 1 - VKpay 2 - Visa Мир 3 - Master Maestro
+        var sum = 30
         var sumOverallVK = 0
         var sumOverallCard = 0 // Общая сумма переводов для всех карт
+        var result = commission(typeCard, sumOverallCard, sum)
+        assertEquals(30, result)
 
-        val result = commission(typeCard, sumOverallCard, sum)
-        assertEquals(28, result)
+        typeCard = 2
+        sum = 150001
+        sumOverallVK = 0
+        sumOverallCard = 0
+        result = commission(typeCard, sumOverallCard, sum)
+        assertEquals(0, result)
+
+        typeCard = 1
+        sum = 10000
+        sumOverallVK = 30001
+        sumOverallCard = 0
+        result = commission(typeCard, sumOverallVK, sum)
+        assertEquals(0, result)
+
+        typeCard = 1
+        sum = 1500
+        sumOverallVK = 20000
+        sumOverallCard = 0
+        result = commission(typeCard, sumOverallVK, sum)
+        assertEquals(sum, result)
+
+        typeCard = 3
+        sum = 150001
+        sumOverallVK = 0
+        sumOverallCard = 0
+        result = commission(typeCard, sumOverallCard, sum)
+        assertEquals(0, result)
     }
 }
