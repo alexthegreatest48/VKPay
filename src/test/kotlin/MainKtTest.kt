@@ -20,9 +20,23 @@ internal class MainKtTest {
         result = commission(typeCard, sumOverallCard, sum)
         assertEquals(0, result)
 
+        typeCard = 2
+        sum = 10
+        sumOverallVK = 0
+        sumOverallCard = 599999
+        result = commission(typeCard, sumOverallCard, sum)
+        assertEquals(0, result)
+
         typeCard = 1
         sum = 10000
         sumOverallVK = 30001
+        sumOverallCard = 0
+        result = commission(typeCard, sumOverallVK, sum)
+        assertEquals(0, result)
+
+        typeCard = 1
+        sum = 16000
+        sumOverallVK = 0
         sumOverallCard = 0
         result = commission(typeCard, sumOverallVK, sum)
         assertEquals(0, result)
@@ -40,5 +54,19 @@ internal class MainKtTest {
         sumOverallCard = 0
         result = commission(typeCard, sumOverallCard, sum)
         assertEquals(0, result)
+
+        typeCard = 3
+        sum = 1500
+        sumOverallVK = 0
+        sumOverallCard = 599999
+        result = commission(typeCard, sumOverallCard, sum)
+        assertEquals(0, result)
+
+        typeCard = 3
+        sum = 1500
+        sumOverallVK = 0
+        sumOverallCard = 0
+        result = commission(typeCard, sumOverallCard, sum)
+        assertEquals(1500, result)
     }
 }
